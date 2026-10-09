@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor y Pizarrón</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+
+    <main class="app">
+
+        <section class="converter panel">
+            <h1>Conversor de monedas</h1>
+
+            <label for="noteTitle">Nombre de la nota</label>
+            <input id="noteTitle" type="text" placeholder="Ej. Vacaciones">
+
+            <label for="amount">Importe en pesos argentinos</label>
+            <input id="amount" type="number" min="0" placeholder="20000">
+
+            <label for="currency">Convertir a</label>
+            <select id="currency">
+                <option value="USD">Dólares (USD)</option>
+                <option value="EUR">Euros (EUR)</option>
+            </select>
+
+            <label for="usdRate">Cotización del dólar en pesos</label>
+            <input id="usdRate" type="number" min="0.01" value="1500">
+
+            <label for="eurRate">Cotización del euro en pesos</label>
+            <input id="eurRate" type="number" min="0.01" value="1750">
+
+            <div class="result">
+                <span>Resultado:</span>
+                <strong id="resultValue">US$ 0,00</strong>
+            </div>
+
+            <button id="addConvertedNote" class="primary" type="button">
+                Agregar al pizarrón
+            </button>
+        </section>
+
+        <section class="board panel">
+            <div class="board-heading">
+                <h2>Mi pizarrón</h2>
+                <button id="openNoteForm" class="add-button" type="button">
+                    + Agregar nota
+                </button>
+            </div>
+
+            <form id="noteForm" class="note-form" hidden>
+                <h3 id="formHeading">Nueva nota</h3>
+
+                <label for="customTitle">Título</label>
+                <input id="customTitle" type="text" required>
+
+                <label for="customText">Anotación</label>
+                <textarea id="customText" rows="3" required></textarea>
+
+                <button id="saveNote" class="primary" type="submit">
+                    Guardar nota
+                </button>
+
+                <button id="cancelNote" class="secondary" type="button">
+                    Cancelar
+                </button>
+            </form>
+
+            <div id="notesGrid" class="notes-grid"></div>
+
+            <p id="emptyMessage" class="empty-message">
+                Todavía no hay notas. ¡Agregá la primera!
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>
